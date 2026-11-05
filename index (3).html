@@ -1,0 +1,410 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#1455df">
+  <meta name="description" content="Portfólio de Ingrid: conheça sua trajetória e seus cursos certificados pelo SENAI em parceria com a AFESU Morro Velho.">
+  <title>Ingrid | Portfólio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      color-scheme: light;
+      --blue: #1455df;
+      --blue-dark: #0d2675;
+      --blue-soft: #dbeaff;
+      --ink: #10244a;
+      --paper: #f5f9ff;
+      --white: #fff;
+      --lime: #d8ff72;
+      --coral: #ff735d;
+      --line: #cbd9ee;
+      font-family: "DM Sans", "Segoe UI", sans-serif;
+      color: var(--ink);
+      background: var(--paper);
+      font-synthesis: none;
+      text-rendering: optimizeLegibility;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; min-width: 320px; }
+    a { color: inherit; }
+    .page-shell { overflow: hidden; }
+    .topbar {
+      width: min(1160px, calc(100% - 64px));
+      margin: 0 auto;
+      min-height: 78px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--line);
+    }
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--blue-dark);
+      font-family: "Space Grotesk", "Segoe UI", sans-serif;
+      font-size: 17px;
+      font-weight: 700;
+      text-decoration: none;
+    }
+    .brand-mark {
+      width: 32px;
+      aspect-ratio: 1;
+      display: grid;
+      place-items: center;
+      border-radius: 10px 10px 10px 3px;
+      color: var(--blue-dark);
+      background: var(--lime);
+      font-size: 14px;
+    }
+    .topbar nav { display: flex; gap: 30px; }
+    .topbar nav a {
+      color: #476084;
+      font-size: 13px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: color 180ms ease;
+    }
+    .topbar nav a:hover, .topbar nav a:focus-visible { color: var(--blue); }
+
+    .intro {
+      width: min(1160px, calc(100% - 64px));
+      margin: 0 auto;
+      min-height: 640px;
+      padding: 64px 0 70px;
+      display: grid;
+      grid-template-columns: 1.03fr .97fr;
+      align-items: center;
+      gap: 58px;
+      position: relative;
+    }
+    .intro-copy { position: relative; z-index: 1; animation: arrive 650ms ease both; }
+    .eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin: 0 0 20px;
+      color: var(--blue);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0;
+      text-transform: uppercase;
+    }
+    .eyebrow::before { content: ""; width: 26px; height: 3px; background: var(--coral); }
+    h1, h2, h3, p { margin-top: 0; }
+    h1 {
+      max-width: 560px;
+      margin-bottom: 20px;
+      color: var(--blue-dark);
+      font-family: "Space Grotesk", "Segoe UI", sans-serif;
+      font-size: 88px;
+      line-height: .92;
+      font-weight: 700;
+    }
+    h1 span { color: var(--blue); }
+    .intro-lead {
+      max-width: 480px;
+      margin-bottom: 30px;
+      color: #476084;
+      font-size: 18px;
+      line-height: 1.7;
+    }
+    .intro-lead strong { color: var(--blue-dark); }
+    .intro-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 14px; }
+    .button {
+      min-height: 48px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 20px;
+      border: 2px solid var(--blue);
+      background: var(--blue);
+      color: var(--white);
+      font-size: 13px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: transform 180ms ease, background 180ms ease;
+    }
+    .button:hover { transform: translateY(-2px); background: var(--blue-dark); }
+    .button-secondary { background: transparent; color: var(--blue); }
+    .button-secondary:hover { color: var(--white); }
+    .intro-note { margin: 28px 0 0; color: #6c7e9b; font-size: 12px; }
+    .intro-note span { color: var(--coral); }
+
+    .portrait-wrap {
+      min-height: 480px;
+      display: grid;
+      place-items: center;
+      position: relative;
+      animation: arrive 750ms 100ms ease both;
+    }
+    .portrait-wrap::before {
+      content: "";
+      width: min(100%, 430px);
+      height: 440px;
+      position: absolute;
+      top: 22px;
+      right: 8px;
+      background: var(--blue);
+      transform: rotate(4deg);
+    }
+    .portrait-frame {
+      width: min(100%, 430px);
+      height: 440px;
+      position: relative;
+      overflow: hidden;
+      border: 8px solid var(--white);
+      background: var(--blue-soft);
+      box-shadow: 0 18px 55px #153f8b24;
+    }
+    .portrait-frame img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: 50% 42%; }
+    .portrait-label {
+      position: absolute;
+      right: -4px;
+      bottom: 26px;
+      padding: 13px 18px;
+      background: var(--lime);
+      color: var(--blue-dark);
+      font-family: "Space Grotesk", "Segoe UI", sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      transform: rotate(-3deg);
+    }
+    .portrait-sticker {
+      width: 66px;
+      aspect-ratio: 1;
+      display: grid;
+      place-items: center;
+      position: absolute;
+      top: 4px;
+      left: -4px;
+      border: 4px solid var(--paper);
+      border-radius: 50%;
+      background: var(--coral);
+      color: var(--white);
+      font-family: "Space Grotesk", "Segoe UI", sans-serif;
+      font-size: 21px;
+      font-weight: 700;
+      transform: rotate(-12deg);
+    }
+
+    .training {
+      padding: 72px 0 80px;
+      background: var(--blue);
+      color: var(--white);
+    }
+    .section-inner { width: min(1160px, calc(100% - 64px)); margin: 0 auto; }
+    .section-heading {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 24px;
+      margin-bottom: 34px;
+    }
+    .section-kicker { margin-bottom: 10px; color: var(--lime); font-size: 11px; font-weight: 700; text-transform: uppercase; }
+    .section-heading h2, .about-copy h2 {
+      margin-bottom: 0;
+      font-family: "Space Grotesk", "Segoe UI", sans-serif;
+      font-size: 44px;
+      line-height: 1.08;
+    }
+    .school-tags { display: flex; gap: 8px; flex-wrap: wrap; }
+    .school-tags span {
+      padding: 9px 13px;
+      border: 1px solid #ffffff66;
+      color: var(--white);
+      font-size: 12px;
+      font-weight: 700;
+    }
+    .training-link { margin: 0 0 24px; }
+    .training-link .button { border-color: var(--lime); background: var(--lime); color: var(--blue-dark); }
+    .training-link .button:hover { border-color: var(--white); background: var(--white); color: var(--blue-dark); }
+    .course-list { border-top: 1px solid #ffffff55; }
+    .course {
+      min-height: 83px;
+      display: grid;
+      grid-template-columns: 55px 1fr auto;
+      align-items: center;
+      gap: 20px;
+      border-bottom: 1px solid #ffffff55;
+    }
+    .course-number { color: var(--lime); font-family: "Space Grotesk", "Segoe UI", sans-serif; font-size: 13px; font-weight: 700; }
+    .course h3 { margin: 0; font-size: 17px; font-weight: 600; }
+    .course-hours { min-width: 112px; display: flex; flex-direction: column; align-items: flex-end; gap: 4px; color: #d9e6ff; font-size: 13px; text-align: right; }
+    .course-certificate { color: var(--lime); font-size: 10px; font-weight: 700; }
+
+    .about {
+      padding: 86px 0 92px;
+      background-color: var(--paper);
+      background-image: linear-gradient(#1455df0a 1px, transparent 1px), linear-gradient(90deg, #1455df0a 1px, transparent 1px);
+      background-size: 32px 32px;
+    }
+    .about-layout { display: grid; grid-template-columns: .75fr 1.25fr; gap: 80px; align-items: start; }
+    .about-aside { padding-top: 4px; }
+    .about-aside .section-kicker { color: var(--blue); }
+    .about-aside h2 { max-width: 300px; color: var(--blue-dark); }
+    .about-copy p { margin-bottom: 24px; color: #405674; font-size: 17px; line-height: 1.8; }
+    .about-copy p strong { color: var(--blue-dark); }
+    .qualities { display: flex; flex-wrap: wrap; gap: 9px; margin: 28px 0 0; padding: 0; list-style: none; }
+    .qualities li { padding: 9px 13px; border: 1px solid #a9bee2; background: #ffffffb8; color: var(--blue-dark); font-size: 12px; font-weight: 700; }
+    .footer {
+      padding: 23px 0;
+      background: var(--blue-dark);
+      color: #e6eeff;
+      font-size: 12px;
+    }
+    .footer-inner { width: min(1160px, calc(100% - 64px)); margin: 0 auto; display: flex; justify-content: space-between; gap: 20px; }
+    .footer p { margin: 0; }
+
+    @keyframes arrive { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; transition-duration: .01ms !important; }
+    }
+    @media (max-width: 760px) {
+      .topbar, .intro, .section-inner, .footer-inner { width: min(100% - 40px, 560px); }
+      .topbar { min-height: 68px; }
+      .topbar nav { gap: 16px; }
+      .topbar nav a { font-size: 12px; }
+      .intro { min-height: auto; padding: 52px 0 62px; grid-template-columns: 1fr; gap: 36px; }
+      h1 { font-size: 68px; }
+      .intro-lead { font-size: 16px; }
+      .portrait-wrap { min-height: 370px; }
+      .portrait-wrap::before, .portrait-frame { width: min(100% - 20px, 410px); height: 360px; }
+      .portrait-wrap::before { right: 2px; }
+      .portrait-sticker { left: 0; }
+      .training { padding: 58px 0 62px; }
+      .section-heading { align-items: start; flex-direction: column; margin-bottom: 28px; }
+      .section-heading h2, .about-copy h2 { font-size: 34px; }
+      .course { min-height: 78px; grid-template-columns: 34px 1fr auto; gap: 12px; }
+      .course h3 { font-size: 14px; line-height: 1.4; }
+      .course-hours { min-width: 82px; font-size: 12px; }
+      .course-certificate { font-size: 9px; }
+      .about { padding: 64px 0 68px; }
+      .about-layout { grid-template-columns: 1fr; gap: 25px; }
+      .about-aside h2 { max-width: 420px; }
+      .about-copy p { font-size: 15px; }
+    }
+    @media (max-width: 390px) {
+      .topbar, .intro, .section-inner, .footer-inner { width: calc(100% - 32px); }
+      .topbar nav { gap: 11px; }
+      .topbar nav a { font-size: 11px; }
+      .course { grid-template-columns: 27px 1fr auto; gap: 8px; }
+      .course-hours { min-width: 72px; font-size: 11px; }
+      .footer-inner { flex-direction: column; gap: 7px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page-shell">
+    <header class="topbar">
+      <a class="brand" href="#inicio" aria-label="Ingrid, início">
+        <span class="brand-mark">I.</span>
+        <span>PORTFÓLIO PESSOAL</span>
+      </a>
+      <nav aria-label="Navegação principal">
+        <a href="#formacao">Formação</a>
+        <a href="#sobre">Sobre mim</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="intro" id="inicio" aria-labelledby="intro-title">
+        <div class="intro-copy">
+          <p class="eyebrow">Em construção, com curiosidade</p>
+          <h1 id="intro-title">Oi, sou<br><span>Ingrid.</span></h1>
+          <p class="intro-lead">Tenho 16 anos e estou construindo meu caminho com <strong>dedicação, criatividade e vontade de aprender.</strong></p>
+          <div class="intro-actions">
+            <a class="button" href="#formacao">Minha formação</a>
+            <a class="button button-secondary" href="#sobre">Um pouco sobre mim</a>
+          </div>
+          <p class="intro-note"><span>●</span> Novas ideias, novos conhecimentos, novos começos.</p>
+        </div>
+        <div class="portrait-wrap" aria-label="Foto de Ingrid">
+          <span class="portrait-sticker" aria-hidden="true">16</span>
+          <div class="portrait-frame">
+            <img src="euuu.jpeg" alt="Retrato de Ingrid">
+          </div>
+          <span class="portrait-label">Prazer, Ingrid!</span>
+        </div>
+      </section>
+
+      <section class="training" id="formacao" aria-labelledby="training-title">
+        <div class="section-inner">
+          <div class="section-heading">
+            <div>
+              <p class="section-kicker">Parceria AFESU Morro Velho + SENAI</p>
+              <h2 id="training-title">Cursos e formação</h2>
+            </div>
+            <div class="school-tags" aria-label="Instituições de formação">
+              <span>AFESU Morro Velho</span>
+              <span>SENAI</span>
+            </div>
+          </div>
+          <p class="training-link">
+            <a class="button" href="https://www.sp.senai.br/unidade/leopoldina/" target="_blank" rel="noopener noreferrer">Saiba mais sobre o SENAI</a>
+          </p>
+          <div class="course-list">
+            <article class="course">
+              <span class="course-number">01</span>
+              <h3>Operador de microcomputador</h3>
+              <span class="course-hours">160 horas<span class="course-certificate">Certificado SENAI</span></span>
+            </article>
+            <article class="course">
+              <span class="course-number">02</span>
+              <h3>Power BI</h3>
+              <span class="course-hours">32 horas<span class="course-certificate">Certificado SENAI</span></span>
+            </article>
+            <article class="course">
+              <span class="course-number">03</span>
+              <h3>Implantação de redes locais</h3>
+              <span class="course-hours">48 horas<span class="course-certificate">Certificado SENAI</span></span>
+            </article>
+            <article class="course">
+              <span class="course-number">04</span>
+              <h3>Excel básico com IA generativa</h3>
+              <span class="course-hours">20 horas<span class="course-certificate">Certificado SENAI</span></span>
+            </article>
+            <article class="course">
+              <span class="course-number">05</span>
+              <h3>Programação com IA generativa</h3>
+              <span class="course-hours">40 horas<span class="course-certificate">Certificado SENAI</span></span>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="about" id="sobre" aria-labelledby="about-title">
+        <div class="section-inner about-layout">
+          <div class="about-aside">
+            <p class="section-kicker">Fora da sala de aula</p>
+            <h2 id="about-title">Um pouco sobre mim</h2>
+          </div>
+          <div class="about-copy">
+            <p>Sou <strong>introvertida, dedicada, comunicativa e muito curiosa</strong>. Gosto de ouvir música, dormir, jogar vôlei e conhecer pessoas novas.</p>
+            <p>Quero viver novas experiências, adquirir conhecimentos e crescer tanto no lado pessoal quanto no profissional. Estou começando minha jornada e animada para descobrir tudo o que ainda posso aprender.</p>
+            <ul class="qualities" aria-label="Interesses e qualidades">
+              <li>Curiosidade</li>
+              <li>Dedicação</li>
+              <li>Música</li>
+              <li>Vôlei</li>
+              <li>Novas experiências</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        <p>Ingrid · Portfólio pessoal</p>
+        <p>Aprender hoje, crescer sempre.</p>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
